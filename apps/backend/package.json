@@ -1,0 +1,17 @@
+{
+  "name": "@repo/backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/server.js",
+  "devDependencies": {
+    "@fastify/cors": "^11.0.0",
+    "@google/generative-ai": "^0.24.0",
+    "@repo/domain": "*",
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^11.9.1",
+    "drizzle-kit": "^0.30.6",
+    "drizzle-orm": "^0.40.1",
+    "fastify": "^5.3.3",
+    "typescript": "^5.9.3"
+  }
+}

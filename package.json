@@ -1,0 +1,25 @@
+{
+  "name": "work-on-branch",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "tsc -b packages/domain apps/backend apps/desktop/tsconfig.main.json && vite build --config apps/desktop/vite.config.ts",
+    "start": "npm run build && concurrently -n backend,desktop \"node --env-file=.env apps/backend/dist/server.js\" \"electron apps/desktop\"",
+    "db:push": "drizzle-kit push --config apps/backend/drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config apps/backend/drizzle.config.ts",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.27.0"
+  }
+}
